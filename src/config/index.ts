@@ -4,10 +4,11 @@ import dotenv from "dotenv"
 dotenv.config()
 
 const config: Config = {
-    mixPanel: {
-        username: process.env.MP_USERNAME_1 || "",
-        secret: process.env.MP_SECRET_1 || "",
-        baseURL: "https://mixpanel.com/api/2.0"
+    youtube: {
+        key: process.env.API_KEY || ""
+    },
+    app: {
+        port: process.env.PORT || 5000
     }
 }
 

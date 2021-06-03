@@ -1,7 +1,8 @@
 export default interface Config{ 
-    mixPanel: {
-        username: string,
-        secret: string,
-        baseURL: string
+    youtube: {
+        key: string
+    },
+    app: {
+        port: string | number
     }
 }
