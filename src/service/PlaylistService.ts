@@ -6,6 +6,7 @@ export default class PlaylistService {
 
     private static key: string;
     private static google: GoogleApis;
+    private static channelID: string = config.youtube.salesforce.channelID;
 
     public static init(key: string, google: GoogleApis) {
         this.key = key
@@ -34,7 +35,7 @@ export default class PlaylistService {
         const list = (await this.google.youtube("v3").playlists.list({
             key,
             part: ["snippet"],
-            channelId: "UCUpquzY878NEaZm5bc7m2sQ",
+            channelId: this.channelID,
         })).data
 
         return list

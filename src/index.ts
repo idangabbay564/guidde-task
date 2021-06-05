@@ -1,7 +1,7 @@
 import express from "express"
 import config from "./config"
 
-import initServer from "./Utils/server/init"
+import initServer from "./utils/server/init"
 
 const port = config.app.port
 

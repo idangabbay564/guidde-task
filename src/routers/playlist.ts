@@ -1,6 +1,7 @@
 import { Router, Request, Response } from "express"
 import PlaylistService from "../service/PlaylistService"
-import errorHandlers from "../Utils/error/expressErrors"
+import Endpoints from "../types/controllers/Endpoints"
+import errorHandlers from "../utils/error/expressErrors"
 
 const router = Router()
 
@@ -40,4 +41,7 @@ router.get("/list", async (req: Request, res: Response) => {
 
 })
 
-export default router
+export default {
+    router,
+    endpoint: Endpoints.PLAYLIST
+}
