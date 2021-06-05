@@ -1,5 +1,5 @@
 {
-  "name": "BE",
+  "name": "Guidde-task",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
     "dev": "tsc-watch --onSuccess \"node ./dist/index.js\"",
-    "build-com": "tsc && cd FE && npm run build"
+    "build": "tsc && cd FE && npm run build"
   },
   "keywords": [],
   "author": "",
