@@ -13,8 +13,6 @@ const List = (props) => {
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(false)
 
-    console.log(items)
-
     useEffect(
         () => loadListItems(type, playlistID, setItems, setLoading),
         [playlistID])

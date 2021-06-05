@@ -4,9 +4,6 @@ import ListTypes from "../../Utils/mappers/ListTypes"
 
 const loadListItems = async (type, playlistID, setItems, setLoading) => {
     try {
-
-        console.log("running")
-
         if (type === ListTypes.PLAYLISTS_LIST) {
 
             setLoading(true)
