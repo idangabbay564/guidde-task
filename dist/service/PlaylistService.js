@@ -14,14 +14,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const googleapis_1 = require("googleapis");
 const config_1 = __importDefault(require("../config"));
+//class being used as the service layer for the playist controller
 class PlaylistService {
     static init(key, google) {
         this.key = key;
         this.google = google;
     }
+    //function handles getting a specific platlist's videos list
     static getPlaylist(playlistId, pageToken) {
         return __awaiter(this, void 0, void 0, function* () {
             const key = this.key;
+            //fetch videos list from the GoogleAPI wrapper util
             const params = {
                 key,
                 part: ["snippet"],
@@ -32,9 +35,11 @@ class PlaylistService {
             return playlist;
         });
     }
+    //function handles getting a the salesforce platlists list
     static getPlaylistsList() {
         return __awaiter(this, void 0, void 0, function* () {
             const key = this.key;
+            //fetch playlists list from the GoogleAPI wrapper util
             const list = (yield this.google.youtube("v3").playlists.list({
                 key,
                 part: ["snippet"],
@@ -46,4 +51,5 @@ class PlaylistService {
 }
 exports.default = PlaylistService;
 PlaylistService.channelID = config_1.default.youtube.salesforce.channelID;
+//initialize the class with the needed static props
 PlaylistService.init(config_1.default.youtube.key, googleapis_1.google);

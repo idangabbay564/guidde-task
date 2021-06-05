@@ -24,25 +24,27 @@ router.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         if (!playlistID)
             return expressErrors_1.default.userError(res, "must provide a playlist ID to fetch");
         playlistID = playlistID.toString();
-        pageToken ? pageToken = pageToken.toString() : null;
-        const playlistObj = yield PlaylistService_1.default.getPlaylist(playlistID, pageToken);
+        pageToken ? pageToken = pageToken.toString() : null; // pagination option parameter handlement
+        const playlistObj = yield PlaylistService_1.default.getPlaylist(playlistID, pageToken); // get playlist from service class
         if (!playlistObj)
-            return expressErrors_1.default.notFound(res);
+            return expressErrors_1.default.notFound(res); // return 404 if couldn find related playlist
         res.send(playlistObj);
     }
     catch (e) {
+        // any error that is thrown and not being handled earlier in the code will be send as an internal error to the client
         expressErrors_1.default.internalError(res);
     }
 }));
 //Endpoint for fetching a list of playlists belongs to the salesforce channel
 router.get("/list", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const playlistList = yield PlaylistService_1.default.getPlaylistsList();
+        const playlistList = yield PlaylistService_1.default.getPlaylistsList(); // get the list of playlists from the service class
         if (!playlistList)
             throw ("");
         res.send(playlistList);
     }
     catch (e) {
+        // any error that is thrown and not being handled earlier in the code will be send as an internal error to the client
         expressErrors_1.default.internalError(res);
     }
 }));

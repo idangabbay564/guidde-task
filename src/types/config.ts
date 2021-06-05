@@ -1,4 +1,5 @@
-export default interface Config{ 
+//configuraiton object type definition
+export default interface Config {
     youtube: {
         key: string,
         salesforce: {
@@ -6,6 +7,7 @@ export default interface Config{
         }
     },
     app: {
-        port: string | number
+        port: string | number,
+        staticDirPath: string
     }
 }

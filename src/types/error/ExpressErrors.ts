@@ -1,7 +1,9 @@
 import { Response } from "express";
 
-export type CustomExpressErrorFunction = (res: Response, message?: string | Object) => void
+//error util function type definition
+export type CustomExpressErrorFunction = (res: Response, message?: string | Object) => void 
 
+//express errors object type definition
 interface ExpressErrors {
     unauthorized: CustomExpressErrorFunction,
     forbidden: CustomExpressErrorFunction,

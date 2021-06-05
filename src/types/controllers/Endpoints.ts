@@ -1,3 +1,4 @@
+//ensure soled endpoints definition along the code
 enum Endpoints {
     PLAYLIST = "/playlist"
 }
